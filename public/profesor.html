@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/styles_profesor.css"> <!--STYLES CSS PROFESOR-->
+    <link rel="stylesheet" href="css/tareas.css"> <!--LISTA DE TAREAS-->
+    <title>Profesor</title>
+</head>
+
+<body>
+<!--Header Rol Profesor--->
+  <div class="profe-container">
+        <header class="profe-header">
+            <h2>Rol Profesor</h2>
+            <a href="home.html" class="btn">Salir</a>
+        </header>
+
+
+<!--Main Rol Profesor--->
+<div class="profe-form-container">
+    <form id="nuevaTarea">
+      <input type="text" id="titulo" placeholder="Nueva Tarea" required />
+      <button type="submit" class="btn">Agregar</button>
+    </form>
+  </div>
+        <main class="profe-main">         
+                  <form id="chat-form"></form> <!-- Carga lista -->
+            <div class="profe-messages">
+                <section id="tarea-container">
+                    <ul id="tareas"></ul> <!-- Lista desordenada donde se mostrarán las tareas -->
+                  </section>                
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.2/qs.min.js"
+        integrity="sha512-ErYZLDi4WRoox2JhOIADWBydTRhMJ0KIXnv5C1GvuY8YooLGapnebaM3iRGhwS6/E9ONXj0MRXp6bhu73sdFkg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/listaprofesor.js"></script> <!-- Controller socketio Lista Tareas Profesor -->
+</body>
+</html>

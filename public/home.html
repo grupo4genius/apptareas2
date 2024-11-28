@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+        integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>App de tareas</title>
+</head>
+
+<body>
+    <div class="form-container">
+        <header class="join-header">
+            <h1><i class="fa fa-graduation-cap" aria-hidden="true"></i> App de Tareas</h1>
+        </header>
+        <main class="join-main">
+            <form action="estudiante.html">
+                <div class="form-group">
+                    <label for="username">Tu nombre</label>
+                    <input type="text" name="username" id="username" placeholder="Tu nombre..." required />
+                </div>
+                <div class="form-group">
+                    <label for="room">Sala</label>
+                    <select name="room" id="room">
+                        <option value="Sexto A">Sexto A</option>
+                    </select>
+                </div>
+
+                
+                <script src="/socket.io/socket.io.js">
+
+                </script>
+                <script> const socket = io('http://localhost:4000'); 
+                function redirigir() { 
+                    const select = document.getElementById('user');
+                    const value = select.value; 
+                    if (value === 'Docente') { window.location.href = 'profesor.html';
+                    }
+                    else if (value === 'Estudiante')
+                    { window.location.href = 'estudiante.html';
+                    }
+                    else if (value === 'Director')
+                    { window.location.href = 'director.html';
+                    }
+                    socket.emit('joinRoom', { room: value }); } </script>
+
+
+                <div class="form-group">
+                    <label for="user">Rol</label>
+                    <select name="user" id="user" onchange="redirigir()">
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Docente">Profesor</option>
+                        <option value="Director">Director</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Entrar</button>                
+            </form>
+        </main>
+    </div>
+</body>
+
+</html>
